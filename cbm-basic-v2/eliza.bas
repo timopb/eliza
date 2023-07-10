@@ -1,8 +1,10 @@
-   30 rem
-   40 rem   eliza/doctor
-   50 rem   created by joseph weizenbaum
-   60 rem
-   70 rem  ----------initialization------------
+   30 rem   eliza/doctor
+   40 rem   idea by joseph weizenbaum
+   50 rem   basic code by jeff shrager
+   60 rem   c64 tweaks by timo p. becker
+   65 rem
+   66 rem -- initialization --------------
+   67 rem
    75 poke 53280,0: poke53281,0
    80 printchr$(147):t$="initializing...":gosub790
    90 dimc$(72),i$(72),k$(72),f$(72),s$(72),r$(72),p$(72),z$(72)
@@ -14,7 +16,7 @@
   150 nextx
   155 t$="hello, i'm eliza. what is your problem?":gosub780
   160 rem
-  170 rem    ------- user  input  section----------
+  170 rem -- user input section ---------
   180 rem
   190 poke 646,1:print
   195 print:poke19,1:input"> ";i$:poke19,0:print:print
@@ -28,7 +30,7 @@
   270 ifi$=p$thent$="please don't repeat yourself!":gosub790:goto160
   271 t$="thinking...    ":gosub790
   280 rem
-  290 rem    --------find keyword in i$-----
+  290 rem -- find keyword in i$ ---------
   300 rem
   310 restore
   320 s=0
@@ -75,7 +77,7 @@
   730 p$=i$:goto160
   740 c$=left$(c$,len(c$)-1):goto700
   750 rem
-  760 rem   -------- output routine --------------
+  760 rem -- output routine -------------
   770 rem
   780 fori=1to15:printchr$(20);:forj=1to25:nextj:nexti
   790 fori=1tolen(t$)
@@ -84,16 +86,16 @@
   820 next
   830 return
   840 rem
-  850 rem   -------- exit program ----------------
+  850 rem -- exit program ---------------
   860 rem
   870 t$="talk to you soon. good bye!":gosub790
   880 fori=1to2000:next
   890 poke53280,14:poke53281,6:printchr$(147)
   900 end
  1000 rem
- 1010 rem   ---------program data follows----------
+ 1010 rem -- program data --------------
  1020 rem
- 1030 rem       keywords
+ 1030 rem     keywords
  1040 rem
  1050 data "can you","can i","you are","youre","i dont","i feel"
  1060 data "why dont you","why cant i","are you","i cant","i am","im "
@@ -222,7 +224,7 @@
  2290 data "can you elaborate on that?"
  2300 data "that is quite interesting."
  2310 rem
- 2320 rem    data for finding right replies
+ 2320 rem     data for finding replies
  2330 rem
  2340 data 1,3,4,2,6,4,6,4,10,4,14,3,17,3,20,2,22,3,25,3
  2350 data 28,4,28,4,32,3,35,5,40,9,40,9,40,9,40,9,40,9,40,9
